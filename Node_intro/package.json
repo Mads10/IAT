@@ -1,0 +1,25 @@
+{
+  "name": "servercode",
+  "version": "0.1.0",
+  "description": "server code ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mads10/node.git"
+  },
+  "keywords": [
+    "mads"
+  ],
+  "author": "Madhat Abdullah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mads10/node/issues"
+  },
+  "homepage": "https://github.com/Mads10/node#readme",
+  "dependencies": {
+    "mocha": "^5.2.0"
+  }
+}
