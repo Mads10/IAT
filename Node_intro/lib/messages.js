@@ -22,16 +22,18 @@ module.exports = function(url,callback){
       
     },
     readUsername:function(username,callback){
-      callback();
+      Message.find({username:username},callback);
     },
     readAll:function(callback){
-      callback();
+      Message.find(callback);
     },
     update:function(id,updatedMessage,callback){
-      callback();
+      var msg = Message.findById(id);
+      msg = new Message(updatedMessage);
+        msg.save(callback);
     },
     delete:function(id,callback){
-      callback();
+      Message.remove({_id:id},callback);
     },
     deleteAll:function(callback){
       Message.remove({},callback);
