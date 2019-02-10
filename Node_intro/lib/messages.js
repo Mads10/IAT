@@ -3,18 +3,41 @@ const sanitizeHTML = require('sanitize-html');
 module.exports = function(url,callback){
   const mongoose = require('mongoose');
   mongoose.connect(url,callback);
-
+    
+ const messagesSchema = new mongoose.Schema(
+ {
+    
+     username:{
+         type:String,
+         required:true
+         
+         
+     },
+     text:{
+         type:String,
+         required:true
+         
+     }
+   }, {strict:'throw'});
+    
   const Message = mongoose.model(
     'messages',
-    {username:String,text:String}
+    messagesSchema
   );
     
-  
 
+    
+
+  
   return {
     create:function(newMessage,callback){
+     try{
      var message = new Message(newMessage);
      message.save(callback);
+     } catch (err){
+         console.log(err);
+         callback();
+     }
       
     },
     read:function(id,callback){
